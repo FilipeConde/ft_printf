@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   libftprintf.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/08 10:34:01 by fconde-p          #+#    #+#             */
-/*   Updated: 2025/08/08 10:40:46 by fconde-p         ###   ########.fr       */
+/*   Created: 2025/08/08 10:39:03 by fconde-p          #+#    #+#             */
+/*   Updated: 2025/08/08 10:40:31 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
 
-int ft_printf(const char *)
-{
-	return (0);
-}
+#ifndef LIBFTPRINTF_H
+# define LIBFTPRINTF_H
+
+int	ft_printf(const char *);
+
+#endif
