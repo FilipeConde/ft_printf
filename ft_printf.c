@@ -6,13 +6,20 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 10:34:01 by fconde-p          #+#    #+#             */
-/*   Updated: 2025/08/08 10:40:46 by fconde-p         ###   ########.fr       */
+/*   Updated: 2025/08/10 16:32:01 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
+#include <string.h>
+#include <stdlib.h>
 
-int ft_printf(const char *)
+char	*ft_printf(const char *c)
 {
-	return (0);
+	char	*ptr;
+
+	ptr = malloc((strlen(c) + 1) * sizeof(char));
+
+	strcpy(ptr, c);
+	return (ptr);
 }

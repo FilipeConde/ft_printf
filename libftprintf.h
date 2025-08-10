@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 10:39:03 by fconde-p          #+#    #+#             */
-/*   Updated: 2025/08/08 10:40:31 by fconde-p         ###   ########.fr       */
+/*   Updated: 2025/08/10 16:33:23 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 #ifndef LIBFTPRINTF_H
 # define LIBFTPRINTF_H
 
-int	ft_printf(const char *);
+char	*ft_printf(const char *c);
 
 #endif
