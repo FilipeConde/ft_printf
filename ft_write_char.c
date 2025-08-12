@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_write_char.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/08 10:34:01 by fconde-p          #+#    #+#             */
-/*   Updated: 2025/08/12 20:30:13 by fconde-p         ###   ########.fr       */
+/*   Created: 2025/08/12 19:54:49 by fconde-p          #+#    #+#             */
+/*   Updated: 2025/08/12 19:55:05 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-char	*ft_printf(const char *s, ...)
+int	write_char(char *s)
 {
-	va_list	args;
+	int	count;
 
-	va_start(args, s);
-	
-	va_end(args);
-	return (s);
+	count = 0;
+	while (*s)
+	{
+		count += write(1, *s, 1);
+		s++;
+	}
+	return (count);
 }
