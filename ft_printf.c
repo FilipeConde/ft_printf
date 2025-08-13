@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 10:34:01 by fconde-p          #+#    #+#             */
-/*   Updated: 2025/08/12 20:30:13 by fconde-p         ###   ########.fr       */
+/*   Updated: 2025/08/13 20:37:22 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,5 @@ char	*ft_printf(const char *s, ...)
 	va_start(args, s);
 	
 	va_end(args);
-	return (s);
+	return ((char *)s);
 }

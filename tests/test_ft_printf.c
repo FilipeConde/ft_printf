@@ -12,7 +12,7 @@ char	*read_file_to_str(const char *filename)
 	long	fsize;
 	char	*str;
 
-	fopen(filename, "rb");
+	f = fopen(filename, "rb");
 	if (!f)
 		return (NULL);
 	fseek(f, 0, SEEK_END);
@@ -36,7 +36,18 @@ void	tearDown()
 {
 	return ;
 }
+void	teste_printf_original(void)
+{
+	char	*output;
 
+	freopen("output.txt", "w+", stdout);
+	printf("Hello world!");
+	freopen("/dev/tty", "w", stdout);
+	output = read_file_to_str("output.txt");
+	TEST_ASSERT_EQUAL_STRING_MESSAGE("Hello, world!", output, "Erro no processo!");
+	free(output);
+	// remove("output.txt");
+}
 void	test_01(void)
 {
 TEST_ASSERT_EQUAL_STRING("TESTE", ft_printf("TESTE"));
@@ -51,7 +62,7 @@ void	test_02(void)
 int	main(void)
 {
 UNITY_BEGIN();
-RUN_TEST(test_01);
-RUN_TEST(test_02);
+RUN_TEST(teste_printf_original);
+// RUN_TEST(test_02);
 return UNITY_END();
 }
