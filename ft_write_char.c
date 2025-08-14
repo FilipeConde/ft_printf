@@ -6,20 +6,20 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 19:54:49 by fconde-p          #+#    #+#             */
-/*   Updated: 2025/08/12 19:55:05 by fconde-p         ###   ########.fr       */
+/*   Updated: 2025/08/13 22:33:37 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int	write_char(char *s)
+int	ft_write_char(char *s)
 {
 	int	count;
 
 	count = 0;
 	while (*s)
 	{
-		count += write(1, *s, 1);
+		count += write(1, *(&s), 1);
 		s++;
 	}
 	return (count);
