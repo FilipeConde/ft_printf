@@ -36,15 +36,17 @@ void	tearDown()
 {
 	return ;
 }
-void	teste_printf_original(void)
+void	teste_write_char(void)
 {
 	char	*output;
+	char	s[] = "Ops!";
 
 	freopen("output.txt", "w+", stdout);
-	printf("Hello world!");
+	ft_write_char(s);
+	fflush(stdout);
 	freopen("/dev/tty", "w", stdout);
 	output = read_file_to_str("output.txt");
-	TEST_ASSERT_EQUAL_STRING_MESSAGE("Hello world!", output, "Erro no processo!");
+	TEST_ASSERT_EQUAL_STRING_MESSAGE("Ops!", output, "Erro no processo!");
 	free(output);
 	remove("output.txt");
 }
@@ -52,6 +54,6 @@ void	teste_printf_original(void)
 int	main(void)
 {
 UNITY_BEGIN();
-RUN_TEST(teste_printf_original);
+RUN_TEST(teste_write_char);
 return UNITY_END();
 }
