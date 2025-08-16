@@ -6,13 +6,13 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/03 18:35:05 by fconde-p          #+#    #+#             */
-/*   Updated: 2025/08/16 20:34:59 by fconde-p         ###   ########.fr       */
+/*   Updated: 2025/08/16 20:49:40 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void	ft_putchar_fd(char c, int fd)
+int	ft_putchar_fd(char c, int fd)
 {
-	write(fd, &c, 1);
+	return ((int)write(fd, &c, 1));
 }

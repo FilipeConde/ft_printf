@@ -6,16 +6,18 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/03 19:12:48 by fconde-p          #+#    #+#             */
-/*   Updated: 2025/08/16 20:35:01 by fconde-p         ###   ########.fr       */
+/*   Updated: 2025/08/16 20:47:05 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void	ft_putnbr_fd(int n, int fd)
+int	ft_putnbr_fd(int n, int fd)
 {
 	char	*s;
+	int		count;
 
+	count = 0;
 	if (n == -2147483648)
 	{
 		ft_putstr_fd("-2147483648", fd);
@@ -25,6 +27,7 @@ void	ft_putnbr_fd(int n, int fd)
 		s = ft_itoa(n);
 	if (!s)
 		return ;
-	ft_putstr_fd(s, fd);
+	count += ft_putstr_fd(s, fd);
 	free(s);
+	return (count);
 }

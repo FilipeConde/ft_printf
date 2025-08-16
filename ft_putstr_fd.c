@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/03 18:46:30 by fconde-p          #+#    #+#             */
-/*   Updated: 2025/08/16 20:35:00 by fconde-p         ###   ########.fr       */
+/*   Updated: 2025/08/16 20:48:17 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,15 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
+	int	count;
+
+	count = 0;
 	if (!s)
-		return ;
+		return (0);
 	while (*s)
 	{
-		ft_putchar_fd(*s, fd);
+		count += ft_putchar_fd(*s, fd);
 		s++;
 	}
+	return (count);
 }
