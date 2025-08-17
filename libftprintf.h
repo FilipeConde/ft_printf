@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 10:39:03 by fconde-p          #+#    #+#             */
-/*   Updated: 2025/08/16 20:45:02 by fconde-p         ###   ########.fr       */
+/*   Updated: 2025/08/16 21:19:50 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	*ft_memset(void *s, int c, size_t n);
 int		ft_putchar_fd(char c, int fd);
 int		ft_putnbr_fd(int n, int fd);
 int		ft_putstr_fd(char *s, int fd);
-
+char	*ft_strdup(const char *s);
+size_t	ft_strlen(const char *s);
 
 #endif
