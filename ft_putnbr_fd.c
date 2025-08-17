@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/03 19:12:48 by fconde-p          #+#    #+#             */
-/*   Updated: 2025/08/16 20:47:05 by fconde-p         ###   ########.fr       */
+/*   Updated: 2025/08/16 21:10:03 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ int	ft_putnbr_fd(int n, int fd)
 	count = 0;
 	if (n == -2147483648)
 	{
-		ft_putstr_fd("-2147483648", fd);
-		return ;
+		count += ft_putstr_fd("-2147483648", fd);
+		return (count);
 	}
 	else
 		s = ft_itoa(n);
 	if (!s)
-		return ;
+		return (0);
 	count += ft_putstr_fd(s, fd);
 	free(s);
 	return (count);
