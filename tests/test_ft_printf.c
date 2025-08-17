@@ -10,6 +10,8 @@ void	setUp()
 
 void	tearDown()
 {
+	remove("output.txt");
+	remove("a.out");
 	return ;
 }
 void	teste_printf_original(void)
@@ -45,13 +47,31 @@ void	print_string_with_one_char_var(void)
 	char	*output;
 	char	*str = "Hello F world!";
 	char	c_var = 'F';
+	int		count = 0;
 
 	freopen("output.txt", "w+", stdout);
-	ft_printf("Hello %c world!", c_var);
+	count = ft_printf("Hello %c world!", c_var);
 	freopen("/dev/tty", "w", stdout);
 	output = read_file_to_str("output.txt");
 	TEST_ASSERT_EQUAL_STRING(str, output);
-	TEST_ASSERT_EQUAL_INT(strlen(output), ft_printf("Hello %c world!", c_var));
+	TEST_ASSERT_EQUAL_INT(strlen(output), count);
+	free(output);
+	remove("output.txt");
+}
+
+void	print_string_with_one_str_var(void)
+{
+	char	*output;
+	char	*str = "Hello fuckin world!";
+	char	*str_var = "fuckin";
+	int		count = 0;
+
+	freopen("output.txt", "w+", stdout);
+	count = ft_printf("Hello %s world!", str_var);
+	freopen("/dev/tty", "w", stdout);
+	output = read_file_to_str("output.txt");
+	TEST_ASSERT_EQUAL_STRING(str, output);
+	TEST_ASSERT_EQUAL_INT(strlen(output), count);
 	free(output);
 	remove("output.txt");
 }
@@ -61,5 +81,6 @@ int	main(void)
 UNITY_BEGIN();
 RUN_TEST(print_simple_direct_string);
 RUN_TEST(print_string_with_one_char_var);
+RUN_TEST(print_string_with_one_str_var);
 return UNITY_END();
 }
