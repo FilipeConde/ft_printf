@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 10:34:01 by fconde-p          #+#    #+#             */
-/*   Updated: 2025/08/16 21:39:22 by fconde-p         ###   ########.fr       */
+/*   Updated: 2025/08/16 21:53:54 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,10 @@ int	ft_printf(const char *s, ...)
 					count += ft_putchar_fd(c_var, 1);
 				}
 				if (*s == 's')
+					count += ft_putstr_fd(va_arg(args, char *), 1);
+				if (*s == 'd' || *s == 'i')
 				{
-					c_var = (char *)va_arg(args, int);
-					count += ft_putstr_fd(c_var, 1);
+					count+= ft_putnbr_fd(va_arg(args, int), 1);
 				}
 			}
 			else

@@ -76,11 +76,29 @@ void	print_string_with_one_str_var(void)
 	remove("output.txt");
 }
 
+void	print_string_with_one_int_var(void)
+{
+	char	*output;
+	char	*str = "Hello 70 world!";
+	int		i_var = 70;
+	int		count = 0;
+
+	freopen("output.txt", "w+", stdout);
+	count = ft_printf("Hello %i world!", i_var);
+	freopen("/dev/tty", "w", stdout);
+	output = read_file_to_str("output.txt");
+	TEST_ASSERT_EQUAL_STRING(str, output);
+	TEST_ASSERT_EQUAL_INT(strlen(output), count);
+	free(output);
+	remove("output.txt");
+}
+
 int	main(void)
 {
 UNITY_BEGIN();
 RUN_TEST(print_simple_direct_string);
 RUN_TEST(print_string_with_one_char_var);
 RUN_TEST(print_string_with_one_str_var);
+RUN_TEST(print_string_with_one_int_var);
 return UNITY_END();
 }
