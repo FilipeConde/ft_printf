@@ -6,7 +6,7 @@
 #    By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/20 19:20:11 by fconde-p          #+#    #+#              #
-#    Updated: 2025/08/15 18:09:11 by fconde-p         ###   ########.fr        #
+#    Updated: 2025/08/16 20:58:31 by fconde-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ UNITY_SRC_DIR = ./Unity-2.6.1/src
 UNITY_O = $(UNITY_SRC_DIR)/unity.c
 
 %:
-	$(CC) test_$(*).c $(SRC_DIR)/$(*).c $(UNITY_O) ./utils/*.c -I ../ -I ./utils/
+	$(CC) test_$(*).c $(SRC_DIR)/*.c $(UNITY_O) ./utils/*.c -I ../ -I ./utils/
 	./a.out
 
 clean:
