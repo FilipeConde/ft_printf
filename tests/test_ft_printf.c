@@ -65,7 +65,7 @@ void	print_string_with_one_str_var(void)
 	char	*str = "Hello fuckin world!";
 	char	*str_var = "fuckin";
 	int		count = 0;
-
+	
 	freopen("output.txt", "w+", stdout);
 	count = ft_printf("Hello %s world!", str_var);
 	freopen("/dev/tty", "w", stdout);
@@ -82,7 +82,7 @@ void	print_string_with_one_int_var(void)
 	char	*str = "Hello 70 world!";
 	int		i_var = 70;
 	int		count = 0;
-
+	
 	freopen("output.txt", "w+", stdout);
 	count = ft_printf("Hello %i world!", i_var);
 	freopen("/dev/tty", "w", stdout);
@@ -99,9 +99,28 @@ void	print_string_with_one_double_var(void)
 	char	*str = "Hello -70 world!";
 	int		i_var = -70;
 	int		count = 0;
-
+	
 	freopen("output.txt", "w+", stdout);
 	count = ft_printf("Hello %i world!", i_var);
+	freopen("/dev/tty", "w", stdout);
+	output = read_file_to_str("output.txt");
+	TEST_ASSERT_EQUAL_STRING(str, output);
+	TEST_ASSERT_EQUAL_INT(strlen(output), count);
+	free(output);
+	remove("output.txt");
+}
+
+void	print_string_with_two_different_var_flags(void)
+{
+	char	*output;
+	char	*str = "Hello fuckin and -70 OH world!";
+	int		i_var = -70;
+	char	*str_var = "fuckin";
+	char	*str_var2 = "OH";
+	int		count = 0;
+	
+	freopen("output.txt", "w+", stdout);
+	count = ft_printf("Hello %s and %i %s world!", str_var, i_var, str_var2);
 	freopen("/dev/tty", "w", stdout);
 	output = read_file_to_str("output.txt");
 	TEST_ASSERT_EQUAL_STRING(str, output);
@@ -118,5 +137,6 @@ RUN_TEST(print_string_with_one_char_var);
 RUN_TEST(print_string_with_one_str_var);
 RUN_TEST(print_string_with_one_int_var);
 RUN_TEST(print_string_with_one_double_var);
+RUN_TEST(print_string_with_two_different_var_flags);
 return UNITY_END();
 }
