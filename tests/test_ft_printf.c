@@ -76,6 +76,23 @@ void	print_string_with_one_str_var(void)
 	remove("output.txt");
 }
 
+void	print_string_with_null_var(void)
+{
+	char	*output;
+	char	*str = "(null)";
+	char	*str_var = (void *)0;
+	int		count = 0;
+	
+	freopen("output.txt", "w+", stdout);
+	count = ft_printf("%s", str_var);
+	freopen("/dev/tty", "w", stdout);
+	output = read_file_to_str("output.txt");
+	TEST_ASSERT_EQUAL_STRING(str, output);
+	TEST_ASSERT_EQUAL_INT(strlen(output), count);
+	free(output);
+	remove("output.txt");
+}
+
 void	print_string_with_one_int_var(void)
 {
 	char	*output;
@@ -135,6 +152,7 @@ UNITY_BEGIN();
 RUN_TEST(print_simple_direct_string);
 RUN_TEST(print_string_with_one_char_var);
 RUN_TEST(print_string_with_one_str_var);
+RUN_TEST(print_string_with_null_var);
 RUN_TEST(print_string_with_one_int_var);
 RUN_TEST(print_string_with_one_double_var);
 RUN_TEST(print_string_with_two_different_var_flags);
