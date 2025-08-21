@@ -219,12 +219,11 @@ void	print_with_valid_pointer_parameter(void)
 {
 	char	*output;
 	char	*str = "teste";
-	char	*str_var = &str;
 	int		count = 0;
 
-	printf("\n%p\n", str_var);
+	printf("\n%p\n", &str);
 	freopen("output.txt", "w+", stdout);
-	count += ft_printf("%p", str_var);
+	count += ft_printf("%p", &str);
 	freopen("/dev/tty", "w", stdout);
 	output = read_file_to_str("output.txt");
 	TEST_ASSERT_EQUAL_STRING(str, output);

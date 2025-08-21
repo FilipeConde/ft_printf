@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 10:39:03 by fconde-p          #+#    #+#             */
-/*   Updated: 2025/08/16 21:19:50 by fconde-p         ###   ########.fr       */
+/*   Updated: 2025/08/21 19:41:42 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,14 @@
 # include <unistd.h>
 
 int		ft_printf(const char *s, ...);
-int		ft_write_char(char *s);
+// int		ft_write_char(char *s);
 void	*ft_calloc(size_t nmemb, size_t size);
 char	*ft_itoa(int n);
 void	*ft_memset(void *s, int c, size_t n);
 int		ft_putchar_fd(char c, int fd);
 int		ft_putnbr_fd(int n, int fd);
 int		ft_putstr_fd(char *s, int fd);
+int		ft_puthex(int nbr);
 char	*ft_strdup(const char *s);
 size_t	ft_strlen(const char *s);
 
