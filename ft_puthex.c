@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 18:27:00 by fconde-p          #+#    #+#             */
-/*   Updated: 2025/08/21 19:43:13 by fconde-p         ###   ########.fr       */
+/*   Updated: 2025/08/21 20:01:03 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	ft_puthex(int nbr)
 	if (nbr >= 16)
 	{
 		div = nbr / 16;
-		ft_puthex(div);
+		count += ft_puthex(div);
 	}
 	mod = nbr % 16;
 	c_nbr = base[mod];

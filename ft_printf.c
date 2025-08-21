@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 10:34:01 by fconde-p          #+#    #+#             */
-/*   Updated: 2025/08/21 19:53:38 by fconde-p         ###   ########.fr       */
+/*   Updated: 2025/08/21 19:59:44 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,10 @@ static void	write_flag(const char s, va_list args, int *count)
 		if (!s_var)
 			*count += ft_putstr_fd("(nil)", 1);
 		else
+		{
+			*count += ft_putstr_fd("0x", 1);
 			*count += ft_puthex(s_var);
+		}
 	}
 	if (s == 'c')
 		*count += ft_putchar_fd(va_arg(args, int), 1);
