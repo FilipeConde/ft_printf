@@ -146,6 +146,56 @@ void	print_string_with_two_different_var_flags(void)
 	remove("output.txt");
 }
 
+void	print_with_two_direct_percent(void)
+{
+	char	*output;
+	char	*str = "%";
+	int		count = 0;
+
+	freopen("output.txt", "w+", stdout);
+	count = ft_printf("%%");
+	freopen("/dev/tty", "w", stdout);
+	output = read_file_to_str("output.txt");
+	TEST_ASSERT_EQUAL_STRING(str, output);
+	TEST_ASSERT_EQUAL_INT(strlen(output), count);
+	free(output);
+	remove("output.txt");
+}
+
+void	print_with_percent_char_parameter(void)
+{
+	char	*output;
+	char	*str = "%";
+	char	c_var = '%';
+	int		count = 0;
+
+	freopen("output.txt", "w+", stdout);
+	count = ft_printf("%c", c_var);
+	freopen("/dev/tty", "w", stdout);
+	output = read_file_to_str("output.txt");
+	TEST_ASSERT_EQUAL_STRING(str, output);
+	TEST_ASSERT_EQUAL_INT(strlen(output), count);
+	free(output);
+	remove("output.txt");
+}
+
+void	print_with_percent_string_parameter(void)
+{
+	char	*output;
+	char	*str = "%";
+	char	*str_var = "%";
+	int		count = 0;
+
+	freopen("output.txt", "w+", stdout);
+	count = ft_printf("%s", str_var);
+	freopen("/dev/tty", "w", stdout);
+	output = read_file_to_str("output.txt");
+	TEST_ASSERT_EQUAL_STRING(str, output);
+	TEST_ASSERT_EQUAL_INT(strlen(output), count);
+	free(output);
+	remove("output.txt");
+}
+
 int	main(void)
 {
 UNITY_BEGIN();
@@ -156,5 +206,8 @@ RUN_TEST(print_string_with_null_var);
 RUN_TEST(print_string_with_one_int_var);
 RUN_TEST(print_string_with_one_double_var);
 RUN_TEST(print_string_with_two_different_var_flags);
+RUN_TEST(print_with_two_direct_percent);
+RUN_TEST(print_with_percent_char_parameter);
+RUN_TEST(print_with_percent_string_parameter);
 return UNITY_END();
 }
