@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 10:34:01 by fconde-p          #+#    #+#             */
-/*   Updated: 2025/08/20 20:17:19 by fconde-p         ###   ########.fr       */
+/*   Updated: 2025/08/20 21:19:29 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@ static void	write_flag(const char s, va_list args, int *count)
 	
 	if (s == 'c')
 	{
-		char c_var = va_arg(args, int);
-		*count += ft_putchar_fd(c_var, 1);
+		*count += ft_putchar_fd(va_arg(args, int), 1);
 	}
 	if (s == 's')
 	{
@@ -60,12 +59,3 @@ int	ft_printf(const char *s, ...)
 	va_end(args);
 	return (count);
 }
-
-// int	main(void)
-// {
-// 	char	c_var;
-
-// 	c_var = 'F';
-// 	ft_printf("TESTE02: %c", c_var);
-// 	return (0);
-// }
