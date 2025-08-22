@@ -323,6 +323,31 @@ void	print_with_valid_pointer_parameter(void)
 	remove("output.txt");
 }
 
+void	print_with_valid_pointer_parameter_TEST(void)
+{
+	char	*control;
+	char	*output;
+	// char	*str = '-1';
+	long		str = -1;
+	int		count = 0;
+
+	printf("\n%p\n", str);
+	ft_printf("\n%p\n", str);
+	freopen("control.txt", "w+", stdout);
+	printf("%p", str);
+	freopen("output.txt", "w+", stdout);
+	count += ft_printf("%p", str);
+	freopen("/dev/tty", "w", stdout);
+	control = read_file_to_str("control.txt");
+	output = read_file_to_str("output.txt");
+	TEST_ASSERT_EQUAL_STRING(control, output);
+	TEST_ASSERT_EQUAL_INT(strlen(control), count);
+	free(control);
+	free(output);
+	remove("control.txt");
+	remove("output.txt");
+}
+
 int	main(void)
 {
 UNITY_BEGIN();
@@ -343,6 +368,7 @@ RUN_TEST(print_with_percent_char_parameter);
 RUN_TEST(print_with_percent_string_parameter);
 RUN_TEST(print_with_nil_pointer_parameter);
 RUN_TEST(print_with_valid_pointer_parameter);
+RUN_TEST(print_with_valid_pointer_parameter_TEST);
 
 return UNITY_END();
 }
