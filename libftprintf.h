@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 10:39:03 by fconde-p          #+#    #+#             */
-/*   Updated: 2025/08/21 19:41:42 by fconde-p         ###   ########.fr       */
+/*   Updated: 2025/08/21 21:26:25 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,9 @@ char	*ft_itoa(int n);
 void	*ft_memset(void *s, int c, size_t n);
 int		ft_putchar_fd(char c, int fd);
 int		ft_putnbr_fd(int n, int fd);
+int		ft_putunbr_fd(unsigned int n, int fd);
 int		ft_putstr_fd(char *s, int fd);
-int		ft_puthex(int nbr);
+int		ft_puthex(int nbr, char case_opt);
 char	*ft_strdup(const char *s);
 size_t	ft_strlen(const char *s);
 
