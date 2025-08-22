@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 10:34:01 by fconde-p          #+#    #+#             */
-/*   Updated: 2025/08/21 21:01:39 by fconde-p         ###   ########.fr       */
+/*   Updated: 2025/08/21 21:33:09 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,12 @@ static void	write_flag(const char s, va_list args, int *count)
 		else
 		{
 			*count += ft_putstr_fd("0x", 1);
-			*count += ft_puthex(i_var);
+			*count += ft_puthex(i_var, 'x');
 		}
 	}
+	if (s == 'x' || s == 'X')
+		*count += ft_puthex(va_arg(args, int), s);
+
 	if (s == 'c')
 		*count += ft_putchar_fd(va_arg(args, int), 1);
 	if (s == 's')
@@ -43,6 +46,8 @@ static void	write_flag(const char s, va_list args, int *count)
 	}
 	if (s == 'd' || s == 'i')
 		*count+= ft_putnbr_fd(va_arg(args, int), 1);
+	if (s == 'u')
+		*count+= ft_putunbr_fd(va_arg(args, unsigned int), 1);
 }
 
 int	ft_printf(const char *s, ...)

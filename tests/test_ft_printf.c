@@ -163,6 +163,23 @@ void	print_string_with_one_unsigned_int_max_var(void)
 	remove("output.txt");
 }
 
+void	print_string_with_one_hexadecimal_int_var_lowercase(void)
+{
+	char	*output;
+	char	*str = "2b";
+	int		x_var = 43;
+	int		count = 0;
+	
+	freopen("output.txt", "w+", stdout);
+	count += ft_printf("%x", x_var);
+	freopen("/dev/tty", "w", stdout);
+	output = read_file_to_str("output.txt");
+	TEST_ASSERT_EQUAL_STRING(str, output);
+	TEST_ASSERT_EQUAL_INT(strlen(output), count);
+	free(output);
+	remove("output.txt");
+}
+
 void	print_string_with_two_different_var_flags(void)
 {
 	char	*output;
@@ -281,6 +298,7 @@ RUN_TEST(print_string_with_null_var);
 RUN_TEST(print_string_with_one_int_var);
 RUN_TEST(print_string_with_one_unsigned_int_var);
 RUN_TEST(print_string_with_one_unsigned_int_max_var);
+RUN_TEST(print_string_with_one_hexadecimal_int_var_lowercase);
 RUN_TEST(print_string_with_one_double_var);
 RUN_TEST(print_string_with_two_different_var_flags);
 RUN_TEST(print_with_two_direct_percent);
@@ -288,5 +306,6 @@ RUN_TEST(print_with_percent_char_parameter);
 RUN_TEST(print_with_percent_string_parameter);
 RUN_TEST(print_with_nil_pointer_parameter);
 RUN_TEST(print_with_valid_pointer_parameter);
+
 return UNITY_END();
 }
