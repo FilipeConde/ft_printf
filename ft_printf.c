@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 10:34:01 by fconde-p          #+#    #+#             */
-/*   Updated: 2025/08/21 21:33:09 by fconde-p         ###   ########.fr       */
+/*   Updated: 2025/08/21 21:55:32 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	write_flag(const char s, va_list args, int *count)
 {
 	char	*s_var;
 	int		i_var;
-	
+
 	if (s == '%')
 		*count += ft_putchar_fd('%', 1);
 	if (s == 'p')
@@ -33,7 +33,6 @@ static void	write_flag(const char s, va_list args, int *count)
 	}
 	if (s == 'x' || s == 'X')
 		*count += ft_puthex(va_arg(args, int), s);
-
 	if (s == 'c')
 		*count += ft_putchar_fd(va_arg(args, int), 1);
 	if (s == 's')
@@ -45,9 +44,9 @@ static void	write_flag(const char s, va_list args, int *count)
 			*count += ft_putstr_fd(s_var, 1);
 	}
 	if (s == 'd' || s == 'i')
-		*count+= ft_putnbr_fd(va_arg(args, int), 1);
+		*count += ft_putnbr_fd(va_arg(args, int), 1);
 	if (s == 'u')
-		*count+= ft_putunbr_fd(va_arg(args, unsigned int), 1);
+		*count += ft_putunbr_fd(va_arg(args, unsigned int), 1);
 }
 
 int	ft_printf(const char *s, ...)
@@ -63,7 +62,6 @@ int	ft_printf(const char *s, ...)
 	{
 		if (*s == '%')
 		{
-			// code to handle format specifier cspdiuxX%
 			s++;
 			write_flag(*s, args, &count);
 		}
