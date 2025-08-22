@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 10:34:01 by fconde-p          #+#    #+#             */
-/*   Updated: 2025/08/21 19:59:44 by fconde-p         ###   ########.fr       */
+/*   Updated: 2025/08/21 21:01:39 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,20 @@
 
 static void	write_flag(const char s, va_list args, int *count)
 {
-	char *s_var;
+	char	*s_var;
+	int		i_var;
 	
 	if (s == '%')
 		*count += ft_putchar_fd('%', 1);
 	if (s == 'p')
 	{
-		s_var = va_arg(args, void *);
-		if (!s_var)
+		i_var = (long int)va_arg(args, void *);
+		if (!i_var)
 			*count += ft_putstr_fd("(nil)", 1);
 		else
 		{
 			*count += ft_putstr_fd("0x", 1);
-			*count += ft_puthex(s_var);
+			*count += ft_puthex(i_var);
 		}
 	}
 	if (s == 'c')
