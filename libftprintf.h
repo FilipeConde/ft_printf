@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 10:39:03 by fconde-p          #+#    #+#             */
-/*   Updated: 2025/08/21 21:26:25 by fconde-p         ###   ########.fr       */
+/*   Updated: 2025/08/21 21:44:49 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int		ft_putchar_fd(char c, int fd);
 int		ft_putnbr_fd(int n, int fd);
 int		ft_putunbr_fd(unsigned int n, int fd);
 int		ft_putstr_fd(char *s, int fd);
-int		ft_puthex(int nbr, char case_opt);
+int		ft_puthex(unsigned int nbr, char case_opt);
 char	*ft_strdup(const char *s);
 size_t	ft_strlen(const char *s);
 

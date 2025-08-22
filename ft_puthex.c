@@ -6,32 +6,27 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 18:27:00 by fconde-p          #+#    #+#             */
-/*   Updated: 2025/08/21 21:26:05 by fconde-p         ###   ########.fr       */
+/*   Updated: 2025/08/21 21:48:34 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int	ft_puthex(int nbr, char case_opt)
+int	ft_puthex(unsigned int nbr, char case_opt)
 {
-	int		div;
-	int		mod;
-	char	c_nbr;
-	char	*base;
-	int		count;
+	unsigned int	div;
+	unsigned int	mod;
+	char			c_nbr;
+	char			*base;
+	int				count;
 
 	count = 0;
 	if (case_opt == 'x')
 		base = "0123456789abcdef";
 	if (case_opt == 'X')
 		base = "0123456789ABCDEF";
-	if (!base)
+	if (case_opt != 'x' && case_opt != 'X')
 		return (0);
-	if (nbr < 0)
-	{
-		nbr *= -1;
-		write(1, "-", 1);
-	}
 	if (nbr >= 16)
 	{
 		div = nbr / 16;
@@ -42,16 +37,3 @@ int	ft_puthex(int nbr, char case_opt)
 	count += write(1, &c_nbr, 1);
 	return (count);
 }
-
-// int	main(void)
-// {
-// 	int		num = -19;
-// 	char	*empty = "";
-// 	char	*binario = "01";
-// 	char	*hexadecimal = "0123456789ABCDEF";
-// 	ft_putnbr_base(num, binario);
-// 	write(1, &"\n", 1);
-// 	ft_putnbr_base(num, hexadecimal);
-// 	write(1, &"\n", 1);
-// 	ft_putnbr_base(num, empty);
-// }

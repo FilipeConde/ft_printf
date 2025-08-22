@@ -13,6 +13,7 @@ void	setUp()
 void	tearDown()
 {
 	remove("output.txt");
+	remove("control.txt");
 	remove("a.out");
 	return ;
 }
