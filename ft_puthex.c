@@ -6,13 +6,13 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 18:27:00 by fconde-p          #+#    #+#             */
-/*   Updated: 2025/08/21 20:01:03 by fconde-p         ###   ########.fr       */
+/*   Updated: 2025/08/21 21:26:05 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int	ft_puthex(int nbr)
+int	ft_puthex(int nbr, char case_opt)
 {
 	int		div;
 	int		mod;
@@ -21,7 +21,12 @@ int	ft_puthex(int nbr)
 	int		count;
 
 	count = 0;
-	base = "0123456789ABCDEF";
+	if (case_opt == 'x')
+		base = "0123456789abcdef";
+	if (case_opt == 'X')
+		base = "0123456789ABCDEF";
+	if (!base)
+		return (0);
 	if (nbr < 0)
 	{
 		nbr *= -1;
@@ -30,7 +35,7 @@ int	ft_puthex(int nbr)
 	if (nbr >= 16)
 	{
 		div = nbr / 16;
-		count += ft_puthex(div);
+		count += ft_puthex(div, case_opt);
 	}
 	mod = nbr % 16;
 	c_nbr = base[mod];
