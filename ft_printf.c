@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 10:34:01 by fconde-p          #+#    #+#             */
-/*   Updated: 2025/08/24 17:33:29 by fconde-p         ###   ########.fr       */
+/*   Updated: 2025/08/24 19:48:28 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,14 @@ int	ft_printf(const char *s, ...)
 	va_start(args, s);
 	while (*s)
 	{
-		if (*s == '%')
+		if (*s == '%' && *(s + 1))
 		{
 			s++;
 			write_flag(*s, args, &count);
 		}
+		else if (*s == '%' && !*(s + 1))
+			return (count);
+		// count += write(1, s, 1);
 		else
 			count += write(1, s, 1);
 		s++;

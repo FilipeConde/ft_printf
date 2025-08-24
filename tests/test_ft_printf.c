@@ -345,6 +345,22 @@ void	print_with_valid_pointer_parameter_to_max_hex(void)
 	remove("output.txt");
 }
 
+void	print_trailing_percent(void)
+{
+	char	*output;
+	char	*expected = "hello";
+	int		count = 0;
+
+	freopen("output.txt", "w+", stdout);
+	count += ft_printf("hello%");
+	freopen("/dev/tty", "w", stdout);
+	output = read_file_to_str("output.txt");
+	TEST_ASSERT_EQUAL_STRING(expected, output);
+	TEST_ASSERT_EQUAL_INT(strlen(expected), count);
+	free(output);
+	remove("output.txt");
+}
+
 int	main(void)
 {
 UNITY_BEGIN();
@@ -366,6 +382,7 @@ RUN_TEST(print_with_percent_string_parameter);
 RUN_TEST(print_with_nil_pointer_parameter);
 RUN_TEST(print_with_valid_pointer_parameter);
 RUN_TEST(print_with_valid_pointer_parameter_to_max_hex);
+RUN_TEST(print_trailing_percent);
 
 return UNITY_END();
 }
