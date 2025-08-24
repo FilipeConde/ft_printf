@@ -323,7 +323,7 @@ void	print_with_valid_pointer_parameter(void)
 	remove("output.txt");
 }
 
-void	print_with_valid_pointer_parameter_TEST(void)
+void	print_with_valid_pointer_parameter_to_max_hex(void)
 {
 	char	*control;
 	char	*output;
@@ -365,7 +365,7 @@ RUN_TEST(print_with_percent_char_parameter);
 RUN_TEST(print_with_percent_string_parameter);
 RUN_TEST(print_with_nil_pointer_parameter);
 RUN_TEST(print_with_valid_pointer_parameter);
-RUN_TEST(print_with_valid_pointer_parameter_TEST);
+RUN_TEST(print_with_valid_pointer_parameter_to_max_hex);
 
 return UNITY_END();
 }
