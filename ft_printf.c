@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 10:34:01 by fconde-p          #+#    #+#             */
-/*   Updated: 2025/08/22 19:40:03 by fconde-p         ###   ########.fr       */
+/*   Updated: 2025/08/24 17:33:29 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,6 @@ int	ft_printf(const char *s, ...)
 {
 	va_list	args;
 	int		count;
-	char	c_var;
-	char	*s_var;
 
 	count = 0;
 	va_start(args, s);
