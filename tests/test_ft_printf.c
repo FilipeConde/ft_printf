@@ -29,13 +29,12 @@ void	print_simple_direct_string(void)
 {
 	char	*output;
 	char	*str = "Hello world!";
+	int		count = 0;
 
-	freopen("output.txt", "w+", stdout);
-	ft_printf(str);
-	freopen("/dev/tty", "w", stdout);
+	CAPTURE_PRINT("output.txt", count, ft_printf, str);
 	output = read_file_to_str("output.txt");
 	TEST_ASSERT_EQUAL_STRING(str, output);
-	TEST_ASSERT_EQUAL_INT(strlen(str), strlen(output));
+	TEST_ASSERT_EQUAL_INT(strlen(str), count);
 	free(output);
 	remove("output.txt");
 }
@@ -61,10 +60,8 @@ void	print_string_with_one_str_var(void)
 	char	*str = "Hello fuckin world!";
 	char	*str_var = "fuckin";
 	int		count = 0;
-	
-	freopen("output.txt", "w+", stdout);
-	count += ft_printf("Hello %s world!", str_var);
-	freopen("/dev/tty", "w", stdout);
+
+	CAPTURE_PRINT("output.txt", count, ft_printf, "Hello %s world!", str_var);
 	output = read_file_to_str("output.txt");
 	TEST_ASSERT_EQUAL_STRING(str, output);
 	TEST_ASSERT_EQUAL_INT(strlen(output), count);
@@ -78,10 +75,8 @@ void	print_string_with_null_var(void)
 	char	*str = "(null)";
 	char	*str_var = (void *)0;
 	int		count = 0;
-	
-	freopen("output.txt", "w+", stdout);
-	count += ft_printf("%s", str_var);
-	freopen("/dev/tty", "w", stdout);
+
+	CAPTURE_PRINT("output.txt", count, ft_printf, "%s", str_var);
 	output = read_file_to_str("output.txt");
 	TEST_ASSERT_EQUAL_STRING(str, output);
 	TEST_ASSERT_EQUAL_INT(strlen(output), count);
@@ -95,10 +90,8 @@ void	print_string_with_one_int_var(void)
 	char	*str = "Hello 70 world!";
 	int		i_var = 70;
 	int		count = 0;
-	
-	freopen("output.txt", "w+", stdout);
-	count += ft_printf("Hello %i world!", i_var);
-	freopen("/dev/tty", "w", stdout);
+
+	CAPTURE_PRINT("output.txt", count, ft_printf, "Hello %i world!", i_var);
 	output = read_file_to_str("output.txt");
 	TEST_ASSERT_EQUAL_STRING(str, output);
 	TEST_ASSERT_EQUAL_INT(strlen(output), count);
@@ -112,10 +105,8 @@ void	print_string_with_one_double_var(void)
 	char	*str = "Hello -70 world!";
 	int		i_var = -70;
 	int		count = 0;
-	
-	freopen("output.txt", "w+", stdout);
-	count += ft_printf("Hello %i world!", i_var);
-	freopen("/dev/tty", "w", stdout);
+
+	CAPTURE_PRINT("output.txt", count, ft_printf, "Hello %i world!", i_var);
 	output = read_file_to_str("output.txt");
 	TEST_ASSERT_EQUAL_STRING(str, output);
 	TEST_ASSERT_EQUAL_INT(strlen(output), count);
@@ -129,10 +120,8 @@ void	print_string_with_one_unsigned_int_var(void)
 	char			*str = "157";
 	unsigned int	u_var = 157;
 	int				count = 0;
-	
-	freopen("output.txt", "w+", stdout);
-	count += ft_printf("%u", u_var);
-	freopen("/dev/tty", "w", stdout);
+
+	CAPTURE_PRINT("output.txt", count, ft_printf, "%u", u_var);
 	output = read_file_to_str("output.txt");
 	TEST_ASSERT_EQUAL_STRING(str, output);
 	TEST_ASSERT_EQUAL_INT(strlen(output), count);
@@ -146,10 +135,8 @@ void	print_string_with_one_unsigned_int_max_var(void)
 	char			*str = "4294967295";
 	unsigned int	u_var = -1;
 	int				count = 0;
-	
-	freopen("output.txt", "w+", stdout);
-	count += ft_printf("%u", u_var);
-	freopen("/dev/tty", "w", stdout);
+
+	CAPTURE_PRINT("output.txt", count, ft_printf, "%u", u_var);
 	output = read_file_to_str("output.txt");
 	TEST_ASSERT_EQUAL_STRING(str, output);
 	TEST_ASSERT_EQUAL_INT(strlen(output), count);
@@ -163,10 +150,8 @@ void	print_string_with_one_hexadecimal_int_var_lowercase(void)
 	char	*str = "2b";
 	int		x_var = 43;
 	int		count = 0;
-	
-	freopen("output.txt", "w+", stdout);
-	count += ft_printf("%x", x_var);
-	freopen("/dev/tty", "w", stdout);
+
+	CAPTURE_PRINT("output.txt", count, ft_printf, "%x", x_var);
 	output = read_file_to_str("output.txt");
 	TEST_ASSERT_EQUAL_STRING(str, output);
 	TEST_ASSERT_EQUAL_INT(strlen(output), count);
@@ -180,10 +165,8 @@ void	print_string_with_one_hexadecimal_int_var_uppercase(void)
 	char	*str = "2B";
 	int		x_var = 43;
 	int		count = 0;
-	
-	freopen("output.txt", "w+", stdout);
-	count += ft_printf("%X", x_var);
-	freopen("/dev/tty", "w", stdout);
+
+	CAPTURE_PRINT("output.txt", count, ft_printf, "%X", x_var);
 	output = read_file_to_str("output.txt");
 	TEST_ASSERT_EQUAL_STRING(str, output);
 	TEST_ASSERT_EQUAL_INT(strlen(output), count);
@@ -197,10 +180,8 @@ void	print_string_with_one_hexadecimal_int_var_max_value(void)
 	char	*str = "ffffffff";
 	int		x_var = -1;
 	int		count = 0;
-	
-	freopen("output.txt", "w+", stdout);
-	count += ft_printf("%x", x_var);
-	freopen("/dev/tty", "w", stdout);
+
+	CAPTURE_PRINT("output.txt", count, ft_printf, "%x", x_var);
 	output = read_file_to_str("output.txt");
 	TEST_ASSERT_EQUAL_STRING(str, output);
 	TEST_ASSERT_EQUAL_INT(strlen(output), count);
@@ -216,10 +197,9 @@ void	print_string_with_two_different_var_flags(void)
 	char	*str_var = "fuckin";
 	char	*str_var2 = "OH";
 	int		count = 0;
-	
-	freopen("output.txt", "w+", stdout);
-	count += ft_printf("Hello %s and %i %s world!", str_var, i_var, str_var2);
-	freopen("/dev/tty", "w", stdout);
+
+	CAPTURE_PRINT("output.txt", count, ft_printf, "Hello %s and %i %s world!",
+		str_var, i_var, str_var2);
 	output = read_file_to_str("output.txt");
 	TEST_ASSERT_EQUAL_STRING(str, output);
 	TEST_ASSERT_EQUAL_INT(strlen(output), count);
@@ -233,9 +213,7 @@ void	print_with_two_direct_percent(void)
 	char	*str = "%";
 	int		count = 0;
 
-	freopen("output.txt", "w+", stdout);
-	count += ft_printf("%%");
-	freopen("/dev/tty", "w", stdout);
+	CAPTURE_PRINT("output.txt", count, ft_printf, "%%");
 	output = read_file_to_str("output.txt");
 	TEST_ASSERT_EQUAL_STRING(str, output);
 	TEST_ASSERT_EQUAL_INT(strlen(output), count);
@@ -250,9 +228,7 @@ void	print_with_percent_char_parameter(void)
 	char	c_var = '%';
 	int		count = 0;
 
-	freopen("output.txt", "w+", stdout);
-	count += ft_printf("%c", c_var);
-	freopen("/dev/tty", "w", stdout);
+	CAPTURE_PRINT("output.txt", count, ft_printf, "%c", c_var);
 	output = read_file_to_str("output.txt");
 	TEST_ASSERT_EQUAL_STRING(str, output);
 	TEST_ASSERT_EQUAL_INT(strlen(output), count);
@@ -267,9 +243,7 @@ void	print_with_percent_string_parameter(void)
 	char	*str_var = "%";
 	int		count = 0;
 
-	freopen("output.txt", "w+", stdout);
-	count += ft_printf("%s", str_var);
-	freopen("/dev/tty", "w", stdout);
+	CAPTURE_PRINT("output.txt", count, ft_printf, "%s", str_var);
 	output = read_file_to_str("output.txt");
 	TEST_ASSERT_EQUAL_STRING(str, output);
 	TEST_ASSERT_EQUAL_INT(strlen(output), count);
@@ -284,9 +258,7 @@ void	print_with_nil_pointer_parameter(void)
 	char	*str_var = (void *)0;
 	int		count = 0;
 
-	freopen("output.txt", "w+", stdout);
-	count += ft_printf("%p", str_var);
-	freopen("/dev/tty", "w", stdout);
+	CAPTURE_PRINT("output.txt", count, ft_printf, "%p", str_var);
 	output = read_file_to_str("output.txt");
 	TEST_ASSERT_EQUAL_STRING(str, output);
 	TEST_ASSERT_EQUAL_INT(strlen(output), count);
@@ -325,7 +297,7 @@ void	print_with_valid_pointer_parameter_to_max_hex(void)
 	control = read_file_to_str("control.txt");
 	output = read_file_to_str("output.txt");
 	TEST_ASSERT_EQUAL_STRING(control, output);
-	TEST_ASSERT_EQUAL_INT(strlen(control), count_ft);
+	TEST_ASSERT_EQUAL_INT(dummy_count, count_ft);
 	free(control);
 	free(output);
 }
@@ -336,9 +308,7 @@ void	print_trailing_percent(void)
 	char	*expected = "hello";
 	int		count = 0;
 
-	freopen("output.txt", "w+", stdout);
-	count += ft_printf("hello%");
-	freopen("/dev/tty", "w", stdout);
+	CAPTURE_PRINT("output.txt", count, ft_printf, "hello%");
 	output = read_file_to_str("output.txt");
 	TEST_ASSERT_EQUAL_STRING(expected, output);
 	TEST_ASSERT_EQUAL_INT(strlen(expected), count);
