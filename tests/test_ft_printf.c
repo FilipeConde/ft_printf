@@ -5,6 +5,13 @@
 
 #include <stdio.h>
 
+#define CAPTURE_PRINT(file, count_var, function, ...) \
+	do { \
+		freopen((file), "w+", stdout); \
+		(count_var) = (function)(__VA_ARGS__); \
+		freopen("/dev/tty", "w", stdout); \
+	} while (0)
+
 void	setUp()
 {
 	return ;
@@ -16,18 +23,6 @@ void	tearDown()
 	remove("control.txt");
 	remove("a.out");
 	return ;
-}
-void	teste_printf_original(void)
-{
-	char	*output;
-
-	freopen("output.txt", "w+", stdout);
-	printf("Hello world!");
-	freopen("/dev/tty", "w", stdout);
-	output = read_file_to_str("output.txt");
-	TEST_ASSERT_EQUAL_STRING_MESSAGE("Hello world!", output, "Erro no processo!");
-	free(output);
-	remove("output.txt");
 }
 
 void	print_simple_direct_string(void)
@@ -50,11 +45,9 @@ void	print_string_with_one_char_var(void)
 	char	*output;
 	char	*str = "Hello F world!";
 	char	c_var = 'F';
-	int		count = 0;
+	int		count;
 
-	freopen("output.txt", "w+", stdout);
-	count += ft_printf("Hello %c world!", c_var);
-	freopen("/dev/tty", "w", stdout);
+	CAPTURE_PRINT("output.txt", count, ft_printf, "Hello %c world!", c_var);
 	output = read_file_to_str("output.txt");
 	TEST_ASSERT_EQUAL_STRING(str, output);
 	TEST_ASSERT_EQUAL_INT(strlen(output), count);
@@ -306,21 +299,17 @@ void	print_with_valid_pointer_parameter(void)
 	char	*control;
 	char	*output;
 	char	*str = "Teste";
-	int		count = 0;
+	int		count_ft;
+	int		dummy_count;
 
-	freopen("control.txt", "w+", stdout);
-	printf("%p", str);
-	freopen("output.txt", "w+", stdout);
-	count += ft_printf("%p", str);
-	freopen("/dev/tty", "w", stdout);
+	CAPTURE_PRINT("control.txt", dummy_count, printf, "%p", str);
+	CAPTURE_PRINT("output.txt", count_ft, ft_printf, "%p", str);
 	control = read_file_to_str("control.txt");
 	output = read_file_to_str("output.txt");
 	TEST_ASSERT_EQUAL_STRING(control, output);
-	TEST_ASSERT_EQUAL_INT(strlen(control), count);
+	TEST_ASSERT_EQUAL_INT(strlen(control), count_ft);
 	free(control);
 	free(output);
-	remove("control.txt");
-	remove("output.txt");
 }
 
 void	print_with_valid_pointer_parameter_to_max_hex(void)
@@ -328,21 +317,17 @@ void	print_with_valid_pointer_parameter_to_max_hex(void)
 	char	*control;
 	char	*output;
 	void	*ptr = (void *)-1;
-	int		count = 0;
+	int		count_ft;
+	int		dummy_count;
 
-	freopen("control.txt", "w+", stdout);
-	printf("%p", ptr);
-	freopen("output.txt", "w+", stdout);
-	count += ft_printf("%p", ptr);
-	freopen("/dev/tty", "w", stdout);
+	CAPTURE_PRINT("control.txt", dummy_count, printf, "%p", ptr);
+	CAPTURE_PRINT("output.txt", count_ft, ft_printf, "%p", ptr);
 	control = read_file_to_str("control.txt");
 	output = read_file_to_str("output.txt");
 	TEST_ASSERT_EQUAL_STRING(control, output);
-	TEST_ASSERT_EQUAL_INT(strlen(control), count);
+	TEST_ASSERT_EQUAL_INT(strlen(control), count_ft);
 	free(control);
 	free(output);
-	remove("control.txt");
-	remove("output.txt");
 }
 
 void	print_trailing_percent(void)
