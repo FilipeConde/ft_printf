@@ -6,12 +6,11 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 10:34:01 by fconde-p          #+#    #+#             */
-/*   Updated: 2025/08/25 19:37:27 by fconde-p         ###   ########.fr       */
+/*   Updated: 2025/08/25 19:57:18 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
 static void	write_flag(const char s, va_list args, int *count)
 {
