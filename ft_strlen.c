@@ -6,11 +6,11 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 21:01:45 by fconde-p          #+#    #+#             */
-/*   Updated: 2025/08/16 21:19:58 by fconde-p         ###   ########.fr       */
+/*   Updated: 2025/08/22 20:34:42 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 size_t	ft_strlen(const char *s)
 {

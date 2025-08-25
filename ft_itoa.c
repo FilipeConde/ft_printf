@@ -6,11 +6,11 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 19:17:02 by fconde-p          #+#    #+#             */
-/*   Updated: 2025/08/16 20:36:44 by fconde-p         ###   ########.fr       */
+/*   Updated: 2025/08/22 20:34:42 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 static int	ft_numlen(int n)
 {

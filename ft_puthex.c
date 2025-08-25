@@ -6,11 +6,11 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 18:27:00 by fconde-p          #+#    #+#             */
-/*   Updated: 2025/08/21 21:48:34 by fconde-p         ###   ########.fr       */
+/*   Updated: 2025/08/22 20:34:42 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_puthex(unsigned int nbr, char case_opt)
 {
