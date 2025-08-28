@@ -5,13 +5,6 @@
 
 #include <stdio.h>
 
-#define CAPTURE_PRINT(file, count_var, function, ...) \
-	do { \
-		freopen((file), "w+", stdout); \
-		(count_var) = (function)(__VA_ARGS__); \
-		freopen("/dev/tty", "w", stdout); \
-	} while (0)
-
 void	setUp()
 {
 	return ;
